@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../../header/Header";
-import Posts from "../../posts/Posts"
-import SideBar from "../../sidebar/SideBar"
+import Header from "../../components/header/Header";
+import Posts from "../../components/posts/Posts"
+import Sidebar from "../../components/sidebar/Sidebar"
 import "./home.css";
 
 const Home = () => {
@@ -10,7 +10,7 @@ const Home = () => {
       <Header />
       <div className="home">
         <Posts />
-        <SideBar />
+        <Sidebar />
       </div>
     </>
   );
