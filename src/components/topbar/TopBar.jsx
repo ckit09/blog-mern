@@ -51,6 +51,7 @@ const TopBar = ({ isLogin, setLogin }) => {
         </ul>
       </div>
       <div className="topRight">
+        <span className="topGreeting">Hi User</span>
         <img
           className="topImg"
           src="https://images.pexels.com/photos/5129351/pexels-photo-5129351.jpeg"

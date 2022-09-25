@@ -28,6 +28,10 @@
   cursor: pointer;
 }
 
+.topGreeting{
+  margin: 0 5px ;
+}
+
 .topImg {
   width: 40px;
   height: 40px;
