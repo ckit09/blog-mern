@@ -23,7 +23,11 @@ function App() {
         <Route path="/write" element={isLogin ? <Write /> : <Register />} />
         <Route path="/setting" element={isLogin ? <Setting /> : <Login />} />
         <Route path="/register" element={isLogin ? <Home /> : <Register />} />
-        <Route path="/login" setLogin={setLogin} element={isLogin ? <Home /> : <Login />} />
+        <Route
+          path="/login"
+          setLogin={setLogin}
+          element={isLogin ? <Home /> : <Login />}
+        />
         <Route path="/post/:postId" element={<Single />} />
       </Routes>
     </Router>
