@@ -11,14 +11,14 @@
 }
 
 .topLeft, .topRight{
-  flex: 3;
+  flex: 4;
   display:flex;
   align-items: center;
   justify-content: center;
 }
 
 .topCenter {
-  flex: 6;
+  flex: 3;
 }
 
 .topIcon {
@@ -29,7 +29,7 @@
 }
 
 .topGreeting{
-  margin: 0 5px ;
+  margin: 0 5px;
 }
 
 .topImg {
@@ -42,15 +42,14 @@
 .topList{
   display: flex;
   justify-content: center;
-  margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .topListItem{
   margin-right: 20px;
-  /* border-bottom: 1px solid #000; */
   font-size: 18px;
+  font-weight: 300;
   cursor: pointer;
 }
 

@@ -14,7 +14,7 @@ const Setting = () => {
           <label>Profile Picture</label>
           <div className="settingPP">
             <img
-              src="https://picsum.photos/200"
+              src="https://images.pexels.com/photos/5129351/pexels-photo-5129351.jpeg"
               alt=""
             />
             <label htmlFor="fileInput">
