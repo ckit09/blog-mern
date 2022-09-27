@@ -8,13 +8,15 @@ import Register from "./pages/register/Register";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useState } from "react";
 
+
 function App() {
   const [isLogin, setIsLogin] = useState(true);
   const setLogin = () => {
     setIsLogin(!isLogin);
-  };
+  }
 
   return (
+    <>
     <Router>
       <TopBar isLogin={isLogin} setLogin={setLogin} />
       <Routes>
@@ -30,6 +32,7 @@ function App() {
         <Route path="/post/:postId" element={<Single />} />
       </Routes>
     </Router>
+    </>
   );
 }
 
