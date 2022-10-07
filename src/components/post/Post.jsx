@@ -3,7 +3,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Post = ({ post }) => {
-
   return (
     <div className="post">
       {post.photo && <img className="postImg" src={post.photo} alt="" />}
@@ -11,7 +10,9 @@ const Post = ({ post }) => {
         <div className="postCats">
           <span className="postCat">
             {post.categories.map((cat) => (
-              <span className="postCat">{cat}</span>
+              <span className="postCat" key={cat}>
+                {cat}
+              </span>
             ))}
           </span>
         </div>
@@ -19,6 +20,7 @@ const Post = ({ post }) => {
           <span className="postTitle">{post.title}</span>
         </Link>
         <hr></hr>
+        {/* <span className="postAuthor">{post.username}</span> */}
         <span className="postDate">
           {new Date(post.createdAt).toDateString()}
         </span>

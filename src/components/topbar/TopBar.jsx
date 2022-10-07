@@ -35,31 +35,42 @@ const TopBar = ({ isLogin, setLogin }) => {
               WRITE
             </Link>
           </li>
-          {isLogin ? (
-            <li
-              className="topListItem"
-              onClick={setLogin}
-              style={{ alignSelf: "center" }}
-            >
+        </ul>
+      </div>
+      <div className="topRight">
+        {isLogin ? (
+          <div className="topRightWrapper">
+            <span onClick={setLogin} className="topRightLogout">
               LOGOUT
-            </li>
-          ) : (
+            </span>
+            <span className="topGreeting">Hi User</span>
+            <span>
+              <Link to="/setting">
+                <img
+                  className="topImg"
+                  src="https://images.pexels.com/photos/5129351/pexels-photo-5129351.jpeg"
+                  alt=""
+                  />
+              </Link>
+            </span>
+          </div>
+        ) : (
+          <div style={{ display: "flex" }}>
+            <Link
+              to="/register"
+              style={{ marginRight: "auto" }}
+              className="link"
+            >
+              <div className="topListItem">REGISTER</div>
+            </Link>
             <Link
               to="/login"
               style={{ textDecoration: "none", color: "inherit" }}
             >
-              <li className="topListItem">LOGIN</li>
+              <div className="topListItem link">LOGIN</div>
             </Link>
-          )}
-        </ul>
-      </div>
-      <div className="topRight">
-        <span className="topGreeting">Hi User</span>
-          <img
-            className="topImg"
-            src="https://images.pexels.com/photos/5129351/pexels-photo-5129351.jpeg"
-            alt=""
-          />
+          </div>
+        )}
         <i className="topSearchIcon fas fa-search"></i>
       </div>
     </div>

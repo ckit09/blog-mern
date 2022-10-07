@@ -10,15 +10,26 @@
   z-index: 999;
 }
 
-.topLeft, .topRight{
+.topCenter {
+  flex: 3;
+}
+
+.topLeft,.topRight{
   flex: 4;
   display:flex;
   align-items: center;
   justify-content: center;
 }
 
-.topCenter {
-  flex: 3;
+.topRightWrapper{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.topRightLogout{
+  cursor: pointer;
 }
 
 .topIcon {
