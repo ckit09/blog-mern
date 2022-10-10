@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom";
 import "./topBar.css";
+import { Context } from "../../context/Context";
+import { useContext } from "react";
 
-const TopBar = ({ isLogin, setLogin }) => {
+const TopBar = () => {
+  const { user, dispatch } = useContext(Context);
+
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+  };
   return (
     <div className="top">
       <div className="topLeft">
@@ -35,31 +42,43 @@ const TopBar = ({ isLogin, setLogin }) => {
               WRITE
             </Link>
           </li>
-          {isLogin ? (
-            <li
-              className="topListItem"
-              onClick={setLogin}
-              style={{ alignSelf: "center" }}
+          <li className="topListItem" onClick={handleLogout} style={{alignSelf: 'center'}}>
+            {user && "LOGOUT"}
+          </li>
+        </ul>
+      </div>
+
+      <div className="topRight">
+        {user ? (
+          <div className="topRightWrapper">
+            <span className="topGreeting">Hi {user.username}</span>
+            <span>
+              <Link to="/setting">
+                <img
+                  className="topImg"
+                  src="https://images.pexels.com/photos/5129351/pexels-photo-5129351.jpeg"
+                  alt=""
+                />
+              </Link>
+            </span>
+          </div>
+        ) : (
+          <div style={{ display: "flex" }}>
+            <Link
+              to="/register"
+              style={{ marginRight: "auto" }}
+              className="link"
             >
-              LOGOUT
-            </li>
-          ) : (
+              <div className="topListItem">REGISTER</div>
+            </Link>
             <Link
               to="/login"
               style={{ textDecoration: "none", color: "inherit" }}
             >
-              <li className="topListItem">LOGIN</li>
+              <div className="topListItem link">LOGIN</div>
             </Link>
-          )}
-        </ul>
-      </div>
-      <div className="topRight">
-        <span className="topGreeting">Hi User</span>
-          <img
-            className="topImg"
-            src="https://images.pexels.com/photos/5129351/pexels-photo-5129351.jpeg"
-            alt=""
-          />
+          </div>
+        )}
         <i className="topSearchIcon fas fa-search"></i>
       </div>
     </div>

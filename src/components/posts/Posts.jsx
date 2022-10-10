@@ -1,19 +1,15 @@
 import React from "react";
 import "./posts.css";
 import Post from "../post/Post";
-import { Link } from "react-router-dom";
 
-const Posts = () => {
+const Posts = ({posts}) => {
   return (
     <div className="posts">
-      <Link to="/post/:postId" style={{ textDecoration: "none", color: "inherit" }}>
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-      </Link>
+        {
+          posts.map(post => (
+            <Post post={post} key={post._id}/>
+          ))
+        }
     </div>
   );
 };
