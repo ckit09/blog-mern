@@ -10,10 +10,6 @@ import axios from "axios";
 const Home = () => {
   const [posts, setPosts] = useState([]);
   const { search } = useLocation();
-  const location = useLocation();
-
-  console.log("search:", search);
-  console.log("location:", location);
 
   useEffect(() => {
     const fetchPosts = async () => {

@@ -35,7 +35,11 @@ const SinglePost = () => {
       <div className="singlePostInfo">
         <span className="singlePostAuthor">
           Author:
-          <Link to={`/?user=${post.username}`} className="link" style={{marginLeft: "5px", display: "inline"}}>
+          <Link
+            to={`/?user=${post.username}`}
+            className="link"
+            style={{ marginLeft: "5px", display: "inline" }}
+          >
             <b>{post.username}</b>
           </Link>
         </span>

@@ -6,32 +6,24 @@ import Setting from "./pages/settings/Setting";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { useState } from "react";
-
+import { useContext } from "react";
+import { Context } from "./context/Context";
 
 function App() {
-  const [isLogin, setIsLogin] = useState(true);
-  const setLogin = () => {
-    setIsLogin(!isLogin);
-  }
-
+  const { user } = useContext(Context);
   return (
     <>
-    <Router>
-      <TopBar isLogin={isLogin} setLogin={setLogin} />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/write" element={isLogin ? <Write /> : <Register />} />
-        <Route path="/setting" element={isLogin ? <Setting /> : <Login />} />
-        <Route path="/register" element={isLogin ? <Home /> : <Register />} />
-        <Route
-          path="/login"
-          setLogin={setLogin}
-          element={isLogin ? <Home /> : <Login />}
-        />
-        <Route path="/post/:postId" element={<Single />} />
-      </Routes>
-    </Router>
+      <Router>
+        <TopBar />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/register" element={user ? <Home /> : <Register />} />
+          <Route path="/login" element={user ? <Home /> : <Login />} />
+          <Route path="/write" element={user ? <Home /> : <Login />} />
+          <Route path="/setting" element={user ? <Home /> : <Login />} />
+          <Route path="/post/:postId" element={<Single />} />
+        </Routes>
+      </Router>
     </>
   );
 }
