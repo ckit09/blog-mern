@@ -6,7 +6,7 @@ const Posts = ({posts}) => {
   return (
     <div className="posts">
         {
-          posts.map(post => {
+          posts?.map(post => {
            return(
             <Post post={post} key={post._id}/>
           )})
