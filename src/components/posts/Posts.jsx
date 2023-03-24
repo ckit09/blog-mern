@@ -8,7 +8,9 @@ const Posts = ({posts}) => {
         {
           posts?.map(post => {
            return(
-            <Post post={post} key={post._id}/>
+            <>
+              <Post post={post} key={post._id} />
+            </>
           )})
         }
     </div>
