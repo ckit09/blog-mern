@@ -9,7 +9,8 @@
   "author": "a2036913 <a2036913@hotmail.com>",
   "license": "MIT",
   "dependencies": {
-    "bcrypt": "^5.0.0",
+    "bcrypt": "^5.1.0",
+    "cjs": "0.0.11",
     "dotenv": "^9.0.2",
     "express": "^4.17.2",
     "mongoose": "^5.12.9",
