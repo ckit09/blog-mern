@@ -13,8 +13,9 @@ const Home = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get("/posts" + search);
-      setPosts(res.data);
+      const res = await axios.get("/posts" + search)
+        .then(()=> {return setPosts(res.data)})
+      
     };
     fetchPosts();
   }, [search]);
