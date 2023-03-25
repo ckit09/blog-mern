@@ -5,9 +5,12 @@ import Post from "../post/Post";
 const Posts = ({posts}) => {
   return (
     <div className="posts">
-      {posts?.map((post) =>
-        post ? (<Post post={post} key={post._id} />) : null
-      )}
+      {
+        posts?.length > 0 &&
+        posts.map((post) => 
+        <Post post={post} key={post._id} />
+        )
+      }
     </div>
   );
 };
