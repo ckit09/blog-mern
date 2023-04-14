@@ -6,10 +6,11 @@ const Posts = ({posts}) => {
   return (
     <div className="posts">
       {
-        posts?.length > 0 &&
+        posts?.length > 0 
+        ? (
         posts.map((post) => 
-        <Post post={post} key={post._id} />
-        )
+        <Post post={post} key={post._id} />)
+        ) : null
       }
     </div>
   );
