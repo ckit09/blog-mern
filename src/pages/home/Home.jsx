@@ -20,6 +20,7 @@ const Home = () => {
         return setPosts(res.data)
       } catch (error) {
         console.error(error)
+        throw error
       }
     };
     fetchPosts();
