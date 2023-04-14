@@ -13,9 +13,14 @@ const Home = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get("/posts" + search)
-        .then(()=> {return setPosts(res.data)})
-        .catch((e)=>console.error(e))
+      try {
+        const res = await axios.get("/posts" + search)
+        console.log('res',res);
+        console.log('res.data',res.data);
+        return setPosts(res.data)
+      } catch (error) {
+        console.error(error)
+      }
     };
     fetchPosts();
   }, [search]);
