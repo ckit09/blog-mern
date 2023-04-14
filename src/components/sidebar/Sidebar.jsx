@@ -29,12 +29,12 @@ const Sidebar = () => {
         <ul className="sidebarList">
           {
             cats?.length > 0 
-            &&
+            ? (
             cats.map((c,i)=>(
               <Link to={`/?cat=${c.name}`} className='link' key={i}>
                 <li className="sidebarListItem">{c.name}</li>
               </Link>
-            ))
+            ))) : null
           }
         </ul>
       </div>

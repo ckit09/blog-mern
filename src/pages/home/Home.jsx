@@ -15,7 +15,7 @@ const Home = () => {
     const fetchPosts = async () => {
       const res = await axios.get("/posts" + search)
         .then(()=> {return setPosts(res.data)})
-      
+        .catch((e)=>console.error(e))
     };
     fetchPosts();
   }, [search]);
