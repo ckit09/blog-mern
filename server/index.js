@@ -7,6 +7,7 @@ const usersRoute = require("./routes/users");
 const postsRoute = require("./routes/posts");
 const categoriesRoute = require("./routes/categories");
 const multer = require('multer');
+const logger = require('npmlog')
 
 dotenv.config();
 app.use(express.json());
@@ -17,7 +18,7 @@ mongoose.connect(process.env.MONGO_URL, {
     useCreateIndex: true,
 })
     .then(console.log("Connected to MongoDB"))
-    .catch((err) => console.log(err));
+    .catch((err) => console.error(err));
 
     const storage = multer.diskStorage({
         destination: (req,file,cb)=>{

@@ -15,8 +15,6 @@ const Home = () => {
     const fetchPosts = async () => {
       try {
         const res = await axios.get("/posts" + search)
-        console.log('res',res);
-        console.log('res.data',res.data);
         return setPosts(res.data)
       } catch (error) {
         console.error(error)
