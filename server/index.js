@@ -41,4 +41,5 @@ mongoose.connect(process.env.MONGO_URL, {
 
 app.listen("5000", () => {
     console.log("Backend is running.");
+    logger.info("index","Backend is running!")
 });
