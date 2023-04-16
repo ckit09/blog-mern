@@ -18,8 +18,34 @@ const SinglePost = () => {
     getPost();
   }, [path]);
 
+  // it works
+  // function deletePost() {
+  //   const username = JSON.parse(localStorage.getItem("user")).username
+  //   axios.delete(`/posts/${post._id}`, {
+  //     data: {username: username,}
+  //   })
+  // }
+
+  async function handleDeletePost() {
+    const username = JSON.parse(localStorage.getItem("user")).username
+    const res = await axios.post(`/posts/delete/${post._id}`, {
+      username: username
+    })
+    if(res.status === 200) {
+      document.querySelector(".singlePost-modal-container").style.display = "flex"
+      setTimeout(()=>{
+        window.location = "/"
+      }, 2000)
+    }
+  }
+
   return (
     <div className="singlePost">
+      <div className="singlePost-modal-container">
+        <div className="singlePost-modal">
+          <h1>Post has been deleted <i class="fa-solid fa-check singlePost-tick"></i></h1>
+        </div>
+      </div>
       <div className="singlePostWrapper">
         {post.photo && (
           <img src={post.photo} alt="" className="singlePostImg" />
@@ -29,7 +55,7 @@ const SinglePost = () => {
         {post.title}
         <div className="singlePostEdit">
           <i className="singlePostIcon fa-regular fa-pen-to-square"></i>
-          <i className="singlePostIcon fa-regular fa-trash-can"></i>
+          <i className="singlePostIcon fa-regular fa-trash-can" onClick={handleDeletePost}></i>
         </div>
       </h1>
       <div className="singlePostInfo">

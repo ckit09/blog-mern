@@ -5,7 +5,6 @@ const PostSchema = new mongoose.Schema(
     title:{
       type: String,
       required: true,
-      unique: true
     },
     desc:{
       type:String,
@@ -22,6 +21,11 @@ const PostSchema = new mongoose.Schema(
     categories:{
       type:Array,
       required:false
+    },
+    deleted:{
+      type: Boolean,
+      required:false,
+      default:false
     }
   },
   { timestamps: true }

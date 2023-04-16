@@ -18,6 +18,7 @@ mongoose.connect(process.env.MONGO_URL, {
     useCreateIndex: true,
 })
     .then(console.log("Connected to MongoDB"))
+    .then(logger.info("index", "Connected to MongoDB"))
     .catch((err) => console.error(err));
 
     const storage = multer.diskStorage({

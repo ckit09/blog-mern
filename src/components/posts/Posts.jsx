@@ -8,7 +8,11 @@ const Posts = ({posts}) => {
       {
         posts?.length > 0 
         ? (
-        posts.map((post) => 
+        posts
+        .filter((post) => {
+          return post.deleted !== true
+        })
+        .map((post) => 
         <Post post={post} key={post._id} />)
         ) : null
       }

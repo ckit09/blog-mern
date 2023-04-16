@@ -30,9 +30,9 @@ const Sidebar = () => {
           {
             cats?.length > 0 
             ? (
-            cats.map((c,i)=>(
-              <Link to={`/?cat=${c.name}`} className='link' key={i}>
-                <li className="sidebarListItem">{c.name}</li>
+            cats.map((item, i)=>(
+              <Link to={`/?cat=${item.name}`} className='link' key={item.name}>
+                <li className="sidebarListItem">{item.name}</li>
               </Link>
             ))) : null
           }

@@ -1,5 +1,36 @@
 .singlePost {
   flex: 9;
+  padding-left: 20px;
+}
+
+.singlePost-modal-container {
+  z-index: 99;
+  position: fixed;
+  display: none;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0 ,0 ,0.5);
+}
+
+.singlePost-modal {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 10px;
+  border: 0;
+  border-radius: 5px;
+}
+
+.singlePost-tick {
+  font-size: 16px;
+  color: green;
+  border: solid green 1px;
+  border-radius: 100%;
+  padding: 3px;
 }
 
 .singlePostWrapper {

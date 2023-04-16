@@ -71,6 +71,29 @@ router.put("/:id", async (req, res) => {
   }
 });
 
+//delete by post method
+router.post("/delete/:id", async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    if (post.username === req.body.username) {
+      try {
+        const updatedPost = await Post.findByIdAndUpdate(
+          req.params.id,
+          {deleted: true},
+          { new: true }
+        );
+        res.status(200).json(updatedPost);
+      } catch (err) {
+        res.status(500).json(err);
+      }
+    } else {
+      res.status(400).json("You can delete only your posts");
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 //Delete Post
 router.delete("/:id", async (req, res) => {
   try {
